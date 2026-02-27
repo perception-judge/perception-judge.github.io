@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mitigating Perceptual Judgment Bias in Multimodal LLM-as-a-Judge via Perceptual Perturbation and Reward Modeling</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Mitigating Perceptual Judgment Bias in Multimodal LLM-as-a-Judge via Perceptual Perturbation and Reward Modeling</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://keunhong.com">Seojeong Park</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://jihochoi.github.io/">Jiho Choi</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/junyongkang/home">Junyong Kang</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://glanceyes.github.io/">Seonho Lee</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=UbZM7nQAAAAJ&hl=ko">Jaeyo Shin</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=KB5XZGIAAAAJ&hl=en">Hyunjung Shim</a><sup></sup>,
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">KAIST AI</span>
+            <!-- <span class="author-block"><sup>1</sup>KAIST AI</span> -->
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            <span class="author-block"></span>
+            <span class="author-block"></span>
+            <span class="author-block"></span>
+            <span class="author-block">Corresponding author: kateshim@kaist.ac.kr</span>
+            <!-- <span class="author-block"><sup>1</sup>KAIST AI</span> -->
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://perceptionjudge.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://perceptionjudge.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://perceptionjudge.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://perceptionjudge.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <img src="./static/images/teaser.png"
+            class="interpolation-image"
+            alt="Interpolation end reference image."/>
+
+      <!-- <h2 class="subtitle has-text-centered"> -->
+      <h2 class="subtitle has-text-justified">
+          <strong>Perceptual judgment bias in MLLM judges.</strong>
+          (a) When perceptual capability is insufficient, a judge may produce incorrect visual descriptions <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(a2)</span> and assign high scores <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(a3)</span> to perceptually wrong responses <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(a2)</span>. 
+          (b) Even when the judge's own perception aligns with humans <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(b2)</span>, it may still prefer <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(b5)</span> visually inconsistent responses <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(b3)</span> compared to the response with correct perception <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(b4)</span>. We introduce <strong>Perception-Judge</strong>, an MLLM judge trained with reinforcement learning on a systematically designed perception-grounded dataset, <strong>PPJD</strong>, which effectively mitigates these perceptual biases in MLLM judgment <span style="font-size: 0.8em; font-family: 'Consolas', monospace;">(a4), (b6)</span>
+        </p>
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent multimodal large language models have demonstrated strong reasoning ability, yet their reliability as automated evaluators remains limited by a critical weakness: when visual evidence conflicts with textual cues, MLLM judges tend to reward plausible narratives over perceptually correct answers. 
+          </p>
+          <p>
+            We identify and systematically analyze this phenomenon, which we term <em><strong>Perceptual Judgment Bias</strong></em>. Through controlled visual perturbations, existing multimodal judges frequently anchor on the response text instead of their own visual perception, leading to inconsistent and non-verifiable evaluations. 
+          </p>
+          <p>
+            To address this issue, we introduce the <em><strong>Perceptually Perturbed Judgment Dataset</strong></em>, which constructs minimally edited counterfactual responses that isolate perceptual errors and enable verifiable supervision. Building on this dataset, we develop a unified training framework that optimizes a verifiable batch-ranking reward with GRPO, achieving coherent global ordering without explicit pairwise labels. 
+          </p>
+          <p>
+            Experiments across diverse MLLM-as-a-Judge benchmarks show that our approach substantially improves perceptual fidelity, ranking coherence, and alignment with human evaluation. Our method establishes a principled and scalable paradigm for training multimodal judges that are perceptually grounded, interpretable, and robust to visual–reasoning conflicts.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!--/ Pipeline Overview. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pipeline Overview</h2>
+        <img src="./static/images/method.png"
+              class="interpolation-image"
+              alt="Interpolation end reference image."/>
+        <h2 class="subtitle has-text-centered">
+          <span class="dnerf">Nerfies</span> \textbf{Perceptual judgment bias in MLLM judges.} (a) When perceptual capability is insufficient, a judge may produce incorrect visual descriptions $_\texttt{(a2)}$ and assign high scores $_\texttt{(a3)}$ to perceptually wrong responses $_\texttt{(a2)}$. (b) Even when the judge’s own perception aligns with humans $_\texttt{(b2)}$, it may still prefer $_\texttt{(b5)}$ visually inconsistent responses $_\texttt{(b3)}$ compared to the response with correct perception $_\texttt{(b4)}$. We introduce \textbf{Perception-Judge}, an MLLM judge trained with reinforcement learning on a systematically designed perception-grounded dataset, \textbf{PPJD}, which effectively mitigates these perceptual biases in MLLM judgment $_\texttt{(a4)}, _\texttt{(b6)}$
+        </h2>
+      </div>
+    </div> -->
+    <!--/ Pipeline Overview. -->
+  </div>
+</section>
+
+
+<section class="Pipeline Overview">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3 has-text-centered">Pipeline Overview</h2>
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <img src="./static/images/method.png"
+            class="interpolation-image"
+            alt="Interpolation end reference image."/>
+
+      <h2 class="subtitle has-text-justified">
+         Using perceptual perturbations, we construct the Perceptually Perturbed Judgment Dataset (PPJD). For each correct response, PPJD generates two perturbed variants. The first response, \(r_{\texttt{r}_{\textit{p}}}\), is produced by altering visually grounded attributes while preserving the original structure. The second response, \(r_{\texttt{r}_{\textit{p+r}}}\), is created by additionally degrading the original reasoning, resulting in a fully corrupted answer. We define the preference order of judgments as \(r_{\texttt{c}} \succ r_{\texttt{r}_{\textit{p}}} \succ r_{\texttt{r}_{\textit{p+r}}}\). Utilizing these ordered triplets, we train the model with GRPO, where the reward is computed using the Levenshtein distance.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Perception-Judge Examples</h2>
+    
+    <div class="columns is-centered">
+      
+      <!-- Flex-Judge. -->
+      <div class="column">
+        <div class="content">
+           <h3 class="title is-6">Flex-Judge-VL-7B vs. Perception-Judge-Flex-7B</h3>
+          <!-- <p>
+            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+            would be impossible without nerfies since it would require going through a wall.
+          </p> -->
+          <img src="./static/images/ex1.png"
+              class="interpolation-image"
+              alt="Interpolation end reference image."/>
+        </div>
+      </div>
+      <!--/ Flex-Judge. -->
+
+      <!-- Qwen3-VL-4B-Thinking. -->
+      <div class="column">
+        <div class="content">
+           <h3 class="title is-6">Qwen3-VL-4B-Thinking vs. Perception-Judge-Qwen-7B</h3>
+          <img src="./static/images/ex2.png"
+              class="interpolation-image"
+              alt="Interpolation end reference image."/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Qwen3-VL-4B-Thinking. -->
+
+
+
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

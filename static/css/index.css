@@ -533,6 +533,55 @@ pre {
   text-wrap: pretty;
 }
 
+.tldr-box {
+  background: #ffffff;
+  border: 1px solid #d8e4df;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(32, 44, 52, 0.07);
+  margin: 1.65rem auto 0;
+  max-width: 860px;
+  padding: 1.1rem 1.25rem;
+  text-align: left;
+}
+
+.tldr-label {
+  color: #2f6f66;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.tldr-box ul {
+  display: grid;
+  gap: 0.55rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tldr-box li {
+  color: #3f4652;
+  font-size: 1rem;
+  line-height: 1.58;
+  padding-left: 1.05rem;
+  position: relative;
+  text-wrap: pretty;
+}
+
+.tldr-box li::before {
+  background: #2f6f66;
+  border-radius: 50%;
+  content: "";
+  height: 0.38rem;
+  left: 0;
+  position: absolute;
+  top: 0.62rem;
+  width: 0.38rem;
+}
+
 .project-section {
   padding-top: 1.5rem;
   padding-bottom: 4.5rem;
@@ -870,6 +919,14 @@ pre {
 
   .hero-summary {
     font-size: 1rem;
+  }
+
+  .tldr-box {
+    padding: 1rem;
+  }
+
+  .tldr-box li {
+    font-size: 0.96rem;
   }
 
   .project-section {

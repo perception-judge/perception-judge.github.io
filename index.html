@@ -64,9 +64,14 @@
             <span class="link-block"><a href="https://huggingface.co/collections/sjpark5800/perception-judge" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"> <img src="static/images/huggingface.svg" alt="" style="height: 1em;"> </span>  <span>Models & Data</span> </a>
           </div>
-          <!-- <p class="hero-summary">
-            Perception-Judge studies when multimodal LLM judges fail to evaluate visually grounded responses, then trains judges with controlled perceptual perturbations and verifiable reward modeling.
-          </p> -->
+          <div class="tldr-box" aria-label="TL;DR summary">
+            <div class="tldr-label">TL;DR</div>
+            <ul>
+              <li>We identify and analyze <strong>Perceptual Judgment Bias</strong>, a failure mode where multimodal LLM judges over-reward fluent or plausible responses even when they contain visual errors.</li>
+              <li>To mitigate this, we build PPJD, a dataset of controlled <strong>perceptual perturbations</strong>, and train Perception-Judge using <strong>GRPO with a verifiable batch-ranking reward.</strong> </li>
+              <!-- <li><strong>Perception-Judge</strong> mitigates this bias using controlled perceptual perturbations and verifiable reward modeling.</li> -->
+            </ul>
+          </div>
         </div>
       </div>
     </div>
